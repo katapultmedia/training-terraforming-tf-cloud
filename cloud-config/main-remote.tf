@@ -7,7 +7,7 @@ resource "tfe_workspace" "training_remote" {
 }
 
 resource "tfe_team_access" "training_remote" {
-  access       = "read"
+  access       = "plan"
   team_id      = tfe_team.training.id
   workspace_id = tfe_workspace.training_remote.id
 }

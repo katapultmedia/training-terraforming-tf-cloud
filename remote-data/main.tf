@@ -3,6 +3,7 @@ data "terraform_remote_state" "local" {
 
   config = {
     organization = "katapultmediainc"
+
     workspaces = {
       name = "tf-cloud-training-local"
     }
