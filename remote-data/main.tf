@@ -5,15 +5,19 @@ data "terraform_remote_state" "local" {
     organization = "katapultmediainc"
 
     workspaces = {
-      name = "tf-cloud-training-local"
+      name = "tf-cloud-training-remote"
     }
   }
 }
 
-output "account_id" {
-  value = data.terraform_remote_state.local.outputs.account_id
+output "arn" {
+  value = data.terraform_remote_state.local.outputs.arn
 }
 
-output "new_relic_token" {
-  value = data.terraform_remote_state.local.outputs.new_relic_token
+output "id" {
+  value = data.terraform_remote_state.local.outputs.id
+}
+
+output "account_id" {
+  value = data.terraform_remote_state.local.outputs.account_id
 }

@@ -3,7 +3,7 @@ resource "tfe_workspace" "training_remote" {
   organization = local.org_name
 
   operations        = true # full access
-  terraform_version = "0.12.18"
+  terraform_version = "0.12.19"
 }
 
 resource "tfe_team_access" "training_remote" {
@@ -12,17 +12,32 @@ resource "tfe_team_access" "training_remote" {
   workspace_id = tfe_workspace.training_remote.id
 }
 
-resource "tfe_variable" "training_remote_account_id" {
+resource "tfe_variable" "remote_account_id" {
   key          = "account_id"
   value        = "ghi789"
   category     = "terraform"
+  sensitive    = true
   workspace_id = tfe_workspace.training_remote.id
 }
 
-resource "tfe_variable" "training_remote_new_relic_token" {
-  key          = "new_relic_token"
-  value        = "jkl101"
-  category     = "terraform"
+resource "tfe_variable" "region" {
+  key          = "AWS_DEFAULT_REGION"
+  value        = "us-east-1"
+  category     = "env"
+  workspace_id = tfe_workspace.training_remote.id
+}
+
+resource "tfe_variable" "access_key" {
+  key          = "AWS_ACCESS_KEY"
+  value        = var.access_key
+  category     = "env"
+  workspace_id = tfe_workspace.training_remote.id
+}
+
+resource "tfe_variable" "secret_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = var.secret_key
+  category     = "env"
   sensitive    = true
   workspace_id = tfe_workspace.training_remote.id
 }
