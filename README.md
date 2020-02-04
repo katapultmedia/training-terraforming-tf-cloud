@@ -4,6 +4,10 @@
 
 [Terraform Cloud](https://app.terraform.io) (TFC) is a great place to either be your full Terraform CI or simply manage your state. The beautiful part of TFC is the ability to use Terraform to fully manage it.
 
+## Video Walkthrough
+
+[![video](https://katapultmedia.com/wp-content/uploads/2020/02/Terraforming-Terraform-Cloud-scaled.jpg)](https://www.youtube.com/watch?v=7zHEjMyBGdU)
+
 ## Terraforming Workspaces
 
 TFC uses the concept of [workspaces](https://www.terraform.io/docs/glossary.html#workspace). This means you can utilize Terraform to manage multiple instances of the same workspace specific to a stage (e.g. dev, qa, prod, etc). This works flawlessly with the [Terraform CLI's `workspace` commands](https://www.terraform.io/docs/commands/workspace/index.html). This tutorial will not dig into those fully, but it is important to know they exist.
